@@ -30,7 +30,7 @@
 
         @include tablet {
             width: 12.5rem;
-            height: 15.625rem;
+            height: 13.75rem;
         }
 
         &:hover &-content {
@@ -67,7 +67,17 @@
         }
 
         &-front {
-            background-color: #BBB;
+            background-color: transparent;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        &-iframe {
+            height: 100%;
+            pointer-events: none;
         }
 
         &-back {
