@@ -29,6 +29,7 @@ const level = document.querySelector(".game__level");
 
 const searchTerms = ["happy", "excited", "sad", "laughing"];
 const shuffledArray = shuffleArray(searchTerms);
+
 // Check if difficulty level
 if (level.textContent.toLowerCase() === "medium") {
     gifApi.getGifs(shuffledArray[0], 4);

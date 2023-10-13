@@ -1,3 +1,6 @@
+let seconds = 180; // 3 minutes
+let countDownInterval = setInterval(countDownTimer, 1000, seconds);
+
 function displayCards(gifData) {
     const gameContent = document.querySelector(".game__content");
     const cardRow1 = createElementsWithClasses("div", ["game__card-row"]);
