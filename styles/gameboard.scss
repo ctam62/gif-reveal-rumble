@@ -74,7 +74,7 @@
     }
 
     &__timer {
-        margin-bottom: 2rem;
+        margin: 0 2rem 2rem 0;
 
         &-countdown {
             color: $focus;
@@ -86,8 +86,16 @@
 
     }
 
-    &__score-counter {
-        color: $focus;
+    &__score {
+        margin-left: 2rem;
+
+        &-counter {
+            color: $focus;
+        }
+    }
+
+    &__button {
+        margin: 2rem 0 5rem 0;
     }
 
     &__card {
@@ -175,5 +183,9 @@
     &__text {
         margin: 2rem;
         color: $primary-dark;
+    }
+
+    &__button {
+        margin-bottom: 3rem;
     }
 }
