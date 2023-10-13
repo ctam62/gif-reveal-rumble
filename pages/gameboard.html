@@ -8,12 +8,24 @@
     <link rel="stylesheet" href="./../styles/gameboard.css">
 </head>
 
-<body>
-    <header></header>
+<body class="gameboard">
+    <header class="header">
+        <nav class="header__nav">
+            <ul class="header__nav-list">
+                <li class="header__logo"><a class="header__nav-link" href="/">GIF REVEAL RUMBLE</a></li>
+                <li class="header__nav-list-item"><a class="header__nav-link" href="/">Exit Game</a></li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <section class="game">
             <h2 class="game__level">Easy</h2>
-            <h3 class="game__timer">3:00</h3>
+            <div class="game__header">
+                <h3 class="game__timer">Time: <span class="game__timer-time">3:00</span></h3>
+                <h3 class="game__score">Score: <span class="game__score-counter">0</span></h3>
+            </div>
+
+
             <div class="game__content game__content--easy">
             </div>
         </section>
