@@ -8,7 +8,20 @@ html {
 
 body {
     font-family: $font-family;
+}
+
 a {
     text-decoration: none;
 }
+
+li {
+    list-style: none;
+}
+
+h2 {
+    font-size: 3.125rem;
+}
+
+h3 {
+    font-size: 2rem;
 }
