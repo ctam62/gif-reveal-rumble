@@ -56,7 +56,7 @@ function displayCards(gifData) {
             if (activeIframe.src !== previousIframe.src) {
                 setTimeout(() => {
                     removeSelectedClass();
-                }, 300);
+                }, 400);
             } else {
                 matchCounter += 1;
                 previousCard.classList.add("game__card--matched");
@@ -141,6 +141,7 @@ function removeSelectedClass() {
     });
 };
 
+// let seconds = 30;
 let seconds = 180; // 3 minutes
 let countDownInterval = setInterval(countDownTimer, 1000, seconds);
 
@@ -155,10 +156,49 @@ function countDownTimer() {
     const timer = document.querySelector(".game__timer-countdown");
     timer.textContent = `${minutes}:${remainingSeconds}`;
 
+    if (seconds < 6) {
+        timer.classList.add("game__timer--danger");
+    }
+
     if (seconds === 0) {
         clearInterval(countDownInterval);
+        // clear gameboard page
+        let gameSection = document.querySelector(".game");
+
+        // Clear existing game content
+        gameSection.textContent = "";
+        // Add game over content
+        gameOverContent = createGameOverElements();
+        gameSection.appendChild(gameOverContent);
+
     } else {
         seconds--;
     }
 }
 
+
+function createGameOverElements() {
+    const contentContainer = createElementsWithClasses("h2", ["gameover"]);
+    const header = createElementsWithClasses("h2", ["gameover__header"]);
+    const buttonContainer = createElementsWithClasses("div", ["gameover__button-container"]);
+    const tryAgainButton = createElementsWithClasses("button", ["gameover__button"]);
+    const levelText = createElementsWithClasses("p", ["gameover__text"]);
+    const mediumButton = createElementsWithClasses("button", ["gameover__button"]);
+    const hardButton = createElementsWithClasses("button", ["gameover__button"]);
+
+    header.textContent = "GAME OVER";
+    tryAgainButton.textContent = "Play Again";
+    levelText.textContent = "Select another level";
+    mediumButton.textContent = "Medium";
+    hardButton.textContent = "Hard";
+
+    buttonContainer.appendChild(tryAgainButton);
+    buttonContainer.appendChild(levelText);
+    buttonContainer.appendChild(mediumButton);
+    buttonContainer.appendChild(hardButton);
+
+    contentContainer.appendChild(header);
+    contentContainer.appendChild(buttonContainer);
+
+    return contentContainer;
+}
