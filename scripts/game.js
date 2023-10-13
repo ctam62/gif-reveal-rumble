@@ -35,10 +35,6 @@ function displayCards(gifData) {
         // Identify closest card when clicked event occurred
         const closestCard = event.target.closest(".game__card");
 
-        // Identify the already selected card
-        const activeCard = event.currentTarget.querySelector(".game__card--selected");
-        const activeCardsLength = document.querySelectorAll(".game__card--selected").length;
-
         console.log("click counter:", clickCounter);
         // Add selected class to clicked card
         closestCard.classList.add("game__card--selected");
@@ -151,10 +147,6 @@ function removeSelectedClass() {
         card.id = 0;
     });
 };
-
-// let seconds = 30;
-let seconds = 180; // 3 minutes
-let countDownInterval = setInterval(countDownTimer, 1000, seconds);
 
 function countDownTimer() {
     let minutes = Math.round((seconds - 30) / 60),
