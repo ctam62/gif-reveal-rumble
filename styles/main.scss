@@ -7,20 +7,13 @@
 body {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
     margin: 0;
     background-color: $primary-bg;
 }
 
-// .banner {
-//     font-size: 70px;
-//     color: white;
-//     text-align: center;
-//     padding: 1.25rem;
-//     width: 100%;
-// box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-// }
 .banner span {
     margin-right: 2rem;
     position: relative;
