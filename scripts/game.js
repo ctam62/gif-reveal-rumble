@@ -140,3 +140,25 @@ function removeSelectedClass() {
         card.id = 0;
     });
 };
+
+let seconds = 180; // 3 minutes
+let countDownInterval = setInterval(countDownTimer, 1000, seconds);
+
+function countDownTimer() {
+    let minutes = Math.round((seconds - 30) / 60),
+        remainingSeconds = seconds % 60;
+
+    if (remainingSeconds < 10) {
+        remainingSeconds = `0${remainingSeconds}`;
+    }
+
+    const timer = document.querySelector(".game__timer-countdown");
+    timer.textContent = `${minutes}:${remainingSeconds}`;
+
+    if (seconds === 0) {
+        clearInterval(countDownInterval);
+    } else {
+        seconds--;
+    }
+}
+
