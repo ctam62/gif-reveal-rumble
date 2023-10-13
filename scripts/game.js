@@ -75,6 +75,39 @@ function displayCards(gifData) {
                 newCardsButton.textContent = "Next Round";
                 gameContent.appendChild(newCardsButton);
 
+                const mediumLevel = document.querySelector(".game__level-medium");
+                const hardLevel = document.querySelector(".game__level-hard");
+                const playAgain = document.querySelector(".game__level-same");
+
+                // const easyButton = document.querySelector(".game__level-easy");
+                // const mediumButton = document.querySelector(".game__level-medium");
+                // const hardButton = document.querySelector(".game__level-hard");
+
+                // easyButton.addEventListener("click", (event) => {
+                //     level.textContent = "Easy";
+                //     window.location.href = "./../pages/gameboard.html";
+                // });
+
+                mediumLevel.addEventListener("click", (event) => {
+                    level.textContent = "Medium";
+                    window.location.href = "./../pages/gameboard.html";
+                });
+
+                hardLevel.addEventListener("click", (event) => {
+                    level.textContent = "Hard";
+                    window.location.href = "./../pages/gameboard.html";
+                });
+
+                playAgain.addEventListener("click", (event) => {
+                    event.preventDefault();
+
+                    displayCards(gifData);
+                    //window.location.href = "./../pages/gameboard.html";
+                });
+
+                mediumLevel.addEventListener("click", (event) => {
+                    const gameLevel = document.querySelector(".game__level");
+                    gameLevel.textContent = "medium";
                 });
             }, 1500);
 
@@ -174,6 +207,18 @@ function countDownTimer() {
         gameOverContent = createGameOverElements();
         gameSection.appendChild(gameOverContent);
 
+        const mediumLevel = document.querySelector(".game__level-medium");
+        const hardLevel = document.querySelector(".game__level-hard");
+        const playAgain = document.querySelector(".game__level-same");
+
+        playAgain.addEventListener("click", (event) => {
+            event.preventDefault();
+
+            window.location.href = "./../pages/gameboard.html";
+
+        })
+
+
     } else {
         seconds--;
     }
@@ -184,10 +229,10 @@ function createGameOverElements() {
     const contentContainer = createElementsWithClasses("h2", ["gameover"]);
     const header = createElementsWithClasses("h2", ["gameover__header"]);
     const buttonContainer = createElementsWithClasses("div", ["gameover__button-container"]);
-    const tryAgainButton = createElementsWithClasses("button", ["gameover__button"]);
+    const tryAgainButton = createElementsWithClasses("button", ["gameover__button", "game__level-same"]);
     const levelText = createElementsWithClasses("p", ["gameover__text"]);
-    const mediumButton = createElementsWithClasses("button", ["gameover__button"]);
-    const hardButton = createElementsWithClasses("button", ["gameover__button"]);
+    const mediumButton = createElementsWithClasses("button", ["gameover__button", "game__level-medium"]);
+    const hardButton = createElementsWithClasses("button", ["gameover__button", "game__level-hard"]);
 
     header.textContent = "GAME OVER";
     tryAgainButton.textContent = "Play Again";
