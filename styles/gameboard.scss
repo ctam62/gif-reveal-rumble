@@ -110,6 +110,10 @@
             height: 13.75rem;
         }
 
+        &:hover {
+            cursor: pointer;
+        }
+
         &--selected &-content,
         &--matched &-content {
             transform: rotateY(180deg);
