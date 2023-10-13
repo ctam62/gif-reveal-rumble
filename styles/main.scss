@@ -60,24 +60,6 @@ body {
     color: $primary-dark;
 }
 
-button {
-    background-color: black;
-    color: $secondary-light;
-    border-radius: .3125rem;
-    padding: 0.625rem 1.25rem;
-    font-size: 1.125rem;
-    font-family: $font-family;
-    margin: 0 0.625rem;
-    cursor: pointer;
-}
-
-button:hover,
-button:focus {
-    box-shadow: 0 0.5rem 0.5rem -0.4rem;
-    transform: translateY(-0.25rem);
-    color: $focus;
-}
-
 .button-container__B1,
 .button-container__B2,
 .button-container__B3 {
