@@ -8,7 +8,7 @@ function displayCards(gifData) {
     const numGifs = Object.keys(gifData).length;
 
     // Create card randomIndexArray
-    const randIndexArray = shuffle(randomPairedArray(0, numGifs));
+    const randIndexArray = shuffleArray(createPairedArray(0, numGifs));
 
     // Assign Gifs to randomly to cards
     randIndexArray.forEach((value, index) => {
@@ -108,7 +108,7 @@ function createElementsWithClasses(element, classNames) {
 };
 
 
-function randomPairedArray(min, max) {
+function createPairedArray(min, max) {
     const pairedArray = [];
     for (let i = 0; i < max; i++) {
         pairedArray.push(i);
@@ -118,7 +118,7 @@ function randomPairedArray(min, max) {
     return pairedArray;
 }
 
-function shuffle(array) {
+function shuffleArray(array) {
     let count = array.length, temp, index;
 
     // While there are elements in the array
