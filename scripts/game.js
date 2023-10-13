@@ -1,4 +1,4 @@
-import { GiphyApi, apiKey, shuffledArray, searchTerms } from "./giphy-api.js";
+import { GiphyApi, apiKey, searchTerms } from "./giphy-api.js";
 
 let seconds = 30; // 3 minutes
 let countDownInterval = setInterval(countDownTimer, 1000, seconds);
@@ -83,6 +83,7 @@ function displayCards(gifData) {
                 const playAgain = document.querySelector(".game__level-same");
 
                 const level = document.querySelector(".game__level");
+                const shuffledArray = shuffleArray(searchTerms);
 
                 playAgain.addEventListener("click", (event) => {
                     event.preventDefault();
@@ -212,6 +213,8 @@ function countDownTimer() {
 
     if (seconds < 6) {
         timer.classList.add("game__timer--danger");
+    } else {
+        timer.classList.remove("game__timer--danger");
     }
 
     if (seconds === 0) {
@@ -253,15 +256,17 @@ function countDownTimer() {
             easyLevel.remove();
         }
 
+        const randomArray = shuffleArray(searchTerms);
+
         playAgain.addEventListener("click", (event) => {
             event.preventDefault();
 
             if (gameLevel.textContent.toLowerCase() === "medium") {
-                gifApi.getGifs(shuffledArray[0], 4);
+                gifApi.getGifs(randomArray[0], 4);
             } else if (gameLevel.textContent.toLowerCase() === "hard") {
-                gifApi.getGifs(shuffledArray[0], 6);
+                gifApi.getGifs(randomArray[0], 6);
             } else {
-                gifApi.getGifs(shuffledArray[0], 3);
+                gifApi.getGifs(randomArray[0], 3);
             }
 
             gameOverContent.remove();
