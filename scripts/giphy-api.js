@@ -23,4 +23,15 @@ class GiphyApi {
 }
 
 const gifApi = new GiphyApi(apiKey);
-gifApi.getGifs(3);
+
+const level = document.querySelector(".game__level");
+
+// Check if difficulty level
+if (level.textContent.toLowerCase() === "medium") {
+    gifApi.getGifs(4);
+} else if (level.textContent.toLowerCase() === "hard") {
+    gifApi.getGifs(6);
+} else {
+    gifApi.getGifs(3);
+}
+
