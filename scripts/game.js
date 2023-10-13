@@ -96,6 +96,7 @@ function displayCards(gifData) {
                     }
 
                     newCardsButton.remove();
+                    matchCounter = 0;
                 });
             }, 1500);
 
@@ -169,6 +170,35 @@ function removeSelectedClass() {
     });
 };
 
+function createGameOverElements() {
+    const contentContainer = createElementsWithClasses("div", ["gameover"]);
+    const header = createElementsWithClasses("h2", ["gameover__header"]);
+    const buttonContainer = createElementsWithClasses("div", ["gameover__button-container"]);
+    const tryAgainButton = createElementsWithClasses("button", ["gameover__button", "game__level-same"]);
+    const levelText = createElementsWithClasses("p", ["gameover__text"]);
+    const easyButton = createElementsWithClasses("button", ["gameover__button", "game__level-easy"]);
+    const mediumButton = createElementsWithClasses("button", ["gameover__button", "game__level-medium"]);
+    const hardButton = createElementsWithClasses("button", ["gameover__button", "game__level-hard"]);
+
+    header.textContent = "GAME OVER";
+    tryAgainButton.textContent = "Play Again";
+    levelText.textContent = "Select another level";
+    easyButton.textContent = "Easy";
+    mediumButton.textContent = "Medium";
+    hardButton.textContent = "Hard";
+
+    buttonContainer.appendChild(tryAgainButton);
+    buttonContainer.appendChild(levelText);
+    buttonContainer.appendChild(easyButton);
+    buttonContainer.appendChild(mediumButton);
+    buttonContainer.appendChild(hardButton);
+
+    contentContainer.appendChild(header);
+    contentContainer.appendChild(buttonContainer);
+
+    return contentContainer;
+};
+
 function countDownTimer() {
     let minutes = Math.round((seconds - 30) / 60),
         remainingSeconds = seconds % 60;
@@ -187,57 +217,55 @@ function countDownTimer() {
     if (seconds === 0) {
         clearInterval(countDownInterval);
         // clear gameboard page
-        let gameSection = document.querySelector(".game");
+        let gameSection = document.querySelector(".game__content");
 
         // Clear existing game content
         gameSection.textContent = "";
+
         // Add game over content
-        gameOverContent = createGameOverElements();
+        const gameOverContent = createGameOverElements();
         gameSection.appendChild(gameOverContent);
 
+        const easyLevel = document.querySelector(".game__level-easy");
         const mediumLevel = document.querySelector(".game__level-medium");
         const hardLevel = document.querySelector(".game__level-hard");
+
+        easyLevel.addEventListener("click", (event) => {
+            window.location.href = "./../pages/gameboard-easy.html";
+        });
+
+        mediumLevel.addEventListener("click", (event) => {
+            window.location.href = "./../pages/gameboard-medium.html";
+        });
+
+        hardLevel.addEventListener("click", (event) => {
+            window.location.href = "./../pages/gameboard-hard.html";
+        });
+
         const playAgain = document.querySelector(".game__level-same");
+        const gameLevel = document.querySelector(".game__level");
 
         playAgain.addEventListener("click", (event) => {
             event.preventDefault();
 
-            window.location.href = "./../pages/gameboard.html";
+            if (gameLevel.textContent.toLowerCase() === "medium") {
+                gifApi.getGifs(shuffledArray[0], 4);
+            } else if (gameLevel.textContent.toLowerCase() === "hard") {
+                gifApi.getGifs(shuffledArray[0], 6);
+            } else {
+                gifApi.getGifs(shuffledArray[0], 3);
+            }
 
+            gameOverContent.remove();
+            seconds = 180;
         })
 
+        countDownInterval = setInterval(countDownTimer, 1000, seconds);
 
     } else {
         seconds--;
     }
-}
-
-
-function createGameOverElements() {
-    const contentContainer = createElementsWithClasses("h2", ["gameover"]);
-    const header = createElementsWithClasses("h2", ["gameover__header"]);
-    const buttonContainer = createElementsWithClasses("div", ["gameover__button-container"]);
-    const tryAgainButton = createElementsWithClasses("button", ["gameover__button", "game__level-same"]);
-    const levelText = createElementsWithClasses("p", ["gameover__text"]);
-    const mediumButton = createElementsWithClasses("button", ["gameover__button", "game__level-medium"]);
-    const hardButton = createElementsWithClasses("button", ["gameover__button", "game__level-hard"]);
-
-    header.textContent = "GAME OVER";
-    tryAgainButton.textContent = "Play Again";
-    levelText.textContent = "Select another level";
-    mediumButton.textContent = "Medium";
-    hardButton.textContent = "Hard";
-
-    buttonContainer.appendChild(tryAgainButton);
-    buttonContainer.appendChild(levelText);
-    buttonContainer.appendChild(mediumButton);
-    buttonContainer.appendChild(hardButton);
-
-    contentContainer.appendChild(header);
-    contentContainer.appendChild(buttonContainer);
-
-    return contentContainer;
-}
+};
 
 
 export { shuffleArray, displayCards };
