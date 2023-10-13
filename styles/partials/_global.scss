@@ -42,4 +42,12 @@ button:focus {
     box-shadow: 0 0.5rem 0.5rem -0.4rem;
     transform: translateY(-0.25rem);
     color: $focus;
+}    
+.helpIcon {
+    width: 6.25rem;
+}
+
+footer {
+    display: flex;
+    justify-content: left;
 }

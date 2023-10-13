@@ -4,19 +4,25 @@
 @use './partials/variables' as *;
 
 
-body {
+.rulesContent {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     height: 100vh;
     margin: 0;
     background-color: $primary-bg;
 }
 .rulesBannerText {
-    font-size: 70px;
+    font-size: 100px;
     padding-top: 1.5625rem;
     padding-bottom: 1.5625rem;
 }
-.rulesDetails__Details {
-    padding-left: 1.875rem;
+.rulesDetails__container {
+    padding-top: 2.5rem;
+}
+.rulesDetails__list--item {
+    font-size: 50px;
+    margin-bottom: .625rem;
+    text-align: center;
 }
