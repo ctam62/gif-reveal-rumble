@@ -1,6 +1,6 @@
 import { GiphyApi, apiKey, shuffledArray, searchTerms } from "./giphy-api.js";
 
-let seconds = 3; // 3 minutes
+let seconds = 30; // 3 minutes
 let countDownInterval = setInterval(countDownTimer, 1000, seconds);
 const gifApi = new GiphyApi(apiKey);
 
@@ -265,7 +265,7 @@ function countDownTimer() {
             }
 
             gameOverContent.remove();
-            seconds = 180;
+            seconds = 30;
         })
 
         countDownInterval = setInterval(countDownTimer, 1000, seconds);
