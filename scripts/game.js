@@ -8,7 +8,7 @@ function displayCards(gifData) {
     // Create card randomIndexArray
     const randIndexArray = shuffleArray(createPairedArray(0, numGifs));
 
-    // Assign Gifs to randomly to cards
+    // Assign Gifs randomly to cards
     randIndexArray.forEach((value, index) => {
         const cardBody = createCards(gifData, value);
         let cardRow = cardRow1;
