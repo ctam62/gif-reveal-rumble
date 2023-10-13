@@ -25,9 +25,13 @@
 .rulesDetails__list--item {
     font-size: 50px;
     margin-bottom: .625rem;
+    padding: 1.25rem;
     text-align: center;
     color: #320e3b;
 }
 button {
     margin-top: 6.25rem;
+}
+.rulesDetails__list {
+    border: 2px inset #E56399;
 }
