@@ -68,9 +68,16 @@ function displayCards(gifData) {
         }
 
         if (matchCounter === numGifs) {
-            // Update score with each match
-            const score = document.querySelector(".game__score-counter");
-            score.textContent = `${Number(score.textContent) + 5}`
+            // show play again button
+            setTimeout(() => {
+                gameContent.textContent = "";
+                const newCardsButton = createElementsWithClasses("button", ["game__button", "game__level-same"]);
+                newCardsButton.textContent = "Next Round";
+                gameContent.appendChild(newCardsButton);
+
+                });
+            }, 1500);
+
         }
     });
 }
