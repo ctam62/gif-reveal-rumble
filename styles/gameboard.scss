@@ -6,21 +6,40 @@
 
 /* Card styles */
 .game {
+    width: 100%;
+    text-align: center;
+
     &__content {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
         margin: 1rem;
+
+        &--easy {
+            margin: 0 auto;
+        }
     }
 
     &__card {
         margin: 1.25rem;
-        width: 18.75rem;
-        height: 28rem;
+        width: 9.375rem;
+        height: 9.375rem;
         border-radius: 0.3125rem;
         border: 0.0625rem solid $dropshadow;
         box-shadow: 0rem 0.25rem 0.25rem 0.0625rem $dropshadow,
             0rem 0.25rem 0.25rem 0.0625rem $dropshadow;
+
+        @include tablet {
+            width: 12.5rem;
+            height: 15.625rem;
+        }
+
+        &-row {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
     }
 }
