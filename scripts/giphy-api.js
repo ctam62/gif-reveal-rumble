@@ -1,3 +1,4 @@
+import { shuffleArray, displayCards } from "./game.js";
 const apiKey = "MHYkOwPbcFBE8NuZlcYAIF7JBCB77Q4s";
 
 class GiphyApi {
@@ -38,3 +39,5 @@ if (level.textContent.toLowerCase() === "medium") {
 } else {
     gifApi.getGifs(shuffledArray[0], 3);
 }
+
+export { GiphyApi, apiKey, shuffledArray, searchTerms };

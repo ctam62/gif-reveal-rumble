@@ -1,5 +1,8 @@
+import { GiphyApi, apiKey, shuffledArray, searchTerms } from "./giphy-api.js";
+
 let seconds = 180; // 3 minutes
 let countDownInterval = setInterval(countDownTimer, 1000, seconds);
+const gifApi = new GiphyApi(apiKey);
 
 function displayCards(gifData) {
     const gameContent = document.querySelector(".game__content");
@@ -38,7 +41,6 @@ function displayCards(gifData) {
         // Identify closest card when clicked event occurred
         const closestCard = event.target.closest(".game__card");
 
-        console.log("click counter:", clickCounter);
         // Add selected class to clicked card
         closestCard.classList.add("game__card--selected");
         closestCard.id = clickCounter;
@@ -78,33 +80,22 @@ function displayCards(gifData) {
                 newCardsButton.textContent = "Next Round";
                 gameContent.appendChild(newCardsButton);
 
-                const mediumLevel = document.querySelector(".game__level-medium");
-                const hardLevel = document.querySelector(".game__level-hard");
                 const playAgain = document.querySelector(".game__level-same");
-
-                mediumLevel.addEventListener("click", (event) => {
-                    event.preventDefault();
-                    level.textContent = "Medium";
-                    window.location.href = "./../pages/gameboard.html";
-                });
-
-                hardLevel.addEventListener("click", (event) => {
-                    event.preventDefault();
-                    level.textContent = "Hard";
-                    window.location.href = "./../pages/gameboard.html";
-                });
 
                 const level = document.querySelector(".game__level");
 
                 playAgain.addEventListener("click", (event) => {
                     event.preventDefault();
 
-                    window.location.href = `./../pages/gameboard-${level.textContent.toLowerCase()}.html`;
-                });
+                    if (level.textContent.toLowerCase() === "medium") {
+                        gifApi.getGifs(shuffledArray[0], 4);
+                    } else if (level.textContent.toLowerCase() === "hard") {
+                        gifApi.getGifs(shuffledArray[0], 6);
+                    } else {
+                        gifApi.getGifs(shuffledArray[0], 3);
+                    }
 
-                mediumLevel.addEventListener("click", (event) => {
-                    const gameLevel = document.querySelector(".game__level");
-                    gameLevel.textContent = "medium";
+                    newCardsButton.remove();
                 });
             }, 1500);
 
@@ -247,3 +238,6 @@ function createGameOverElements() {
 
     return contentContainer;
 }
+
+
+export { shuffleArray, displayCards };
