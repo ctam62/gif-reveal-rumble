@@ -10,7 +10,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #7F96FF;
+    background-color: $primary-bg;
 }
 
 // .banner {
@@ -26,7 +26,7 @@ body {
     position: relative;
     display: inline-block;
     font-size: 175px;
-    color: #DBFCFF;
+    color: $primary-light;
     text-transform: uppercase;
     animation: flip 2s infinite;
     animation-delay: calc(.2s);
@@ -59,7 +59,7 @@ body {
 
 button {
     background-color: black;
-    color: #FFFFFF;
+    color: $secondary-light;
     border-radius: .3125rem;
     padding: 10px 20px;
     font-size: 1.125rem;
@@ -71,7 +71,7 @@ button:hover,
 button:focus {
     box-shadow: 0 0.5em 0.5em -0.4em;
     transform: translateY(-0.25em);
-    color: #E56399;
+    color: $focus;
 }
 
 .button-container__B1,
