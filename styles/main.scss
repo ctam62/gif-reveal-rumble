@@ -4,28 +4,25 @@
 @use './partials/variables' as *;
 
 
-body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: $primary-bg;
+.main-body {
+    width: 90%;
+    margin: 0 auto;
 }
 
-// .banner {
-//     font-size: 70px;
-//     color: white;
-//     text-align: center;
-//     padding: 1.25rem;
-//     width: 100%;
-// box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-// }
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
 .banner span {
-    margin-right: 2rem;
+    margin: 0 1rem;
     position: relative;
-    display: inline-block;
-    font-size: 10.9375rem;
+    display: flex;
+    flex-direction: column;
+    font-size: 6.25rem;
     color: $primary-light;
     text-transform: uppercase;
     animation: flip 2s infinite;
@@ -37,6 +34,11 @@ body {
         80% {
             transform: rotateY(360deg);
         }
+    }
+
+    @include desktop {
+        display: inline-block;
+        font-size: 10.9375rem;
     }
 }
 
@@ -51,19 +53,19 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-}
 
-.button-container__text {
-    font-size: 3.125rem;
-    padding-top: 1.875rem;
-    padding-bottom: 0.938rem;
-    color: $primary-dark;
-}
+    &__text {
+        font-size: 3.125rem;
+        padding-top: 1.875rem;
+        padding-bottom: 0.938rem;
+        color: $primary-dark;
+    }
 
-.button-container__B1,
-.button-container__B2,
-.button-container__B3 {
-    margin-bottom: 0.625rem;
-    font-size: 1.875rem;
-    width: 15rem;
+    &__B1,
+    &__B2,
+    &__B3 {
+        margin-bottom: 0.625rem;
+        font-size: 1.875rem;
+        width: 15rem;
+    }
 }
