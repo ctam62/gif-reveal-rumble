@@ -25,14 +25,16 @@
         margin: 1.25rem;
         width: 9.375rem;
         height: 9.375rem;
-        border-radius: 0.3125rem;
-        border: 0.0625rem solid $dropshadow;
-        box-shadow: 0rem 0.25rem 0.25rem 0.0625rem $dropshadow,
-            0rem 0.25rem 0.25rem 0.0625rem $dropshadow;
+        perspective: 62.5rem;
+        background-color: transparent;
 
         @include tablet {
             width: 12.5rem;
             height: 15.625rem;
+        }
+
+        &:hover &-content {
+            transform: rotateY(180deg);
         }
 
         &-row {
@@ -40,6 +42,36 @@
             width: 100%;
             justify-content: center;
             align-items: center;
+        }
+
+        &-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 0.3125rem;
+            border: 0.0625rem solid $dropshadow;
+            box-shadow: 0rem 0.25rem 0.25rem 0.0625rem $dropshadow,
+                0rem 0.25rem 0.25rem 0.0625rem $dropshadow;
+        }
+
+        &-front,
+        &-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 0.3125rem;
+        }
+
+        &-front {
+            background-color: #BBB;
+        }
+
+        &-back {
+            background-color: $primary-dark;
         }
     }
 }
