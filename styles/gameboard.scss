@@ -46,6 +46,7 @@
 /* Card styles */
 .game {
     width: 100%;
+    margin: 1rem;
     padding: 2rem;
     text-align: center;
 
@@ -92,7 +93,8 @@
             height: 13.75rem;
         }
 
-        &:hover &-content {
+        &--selected &-content,
+        &--matched &-content {
             transform: rotateY(180deg);
         }
 
