@@ -1,0 +1,7 @@
+@use './mixins' as *;
+@use './variables' as *;
+@use './_fonts';
+
+html {
+    font-size: 100%;
+}
