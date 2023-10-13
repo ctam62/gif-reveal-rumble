@@ -56,14 +56,18 @@ function displayCards(gifData) {
             if (activeIframe.src !== previousIframe.src) {
                 setTimeout(() => {
                     removeSelectedClass();
+                    previousCard.id = 0;
+                    currentCard.id = 0;
                 }, 400);
             } else {
                 matchCounter += 1;
                 previousCard.classList.add("game__card--matched");
                 currentCard.classList.add("game__card--matched");
-                console.log("match counter:", matchCounter);
+                // Update score with each match
                 const score = document.querySelector(".game__score-counter");
                 score.textContent = `${Number(score.textContent) + 5}`
+                previousCard.id = 0;
+                currentCard.id = 0;
             }
         }
 
