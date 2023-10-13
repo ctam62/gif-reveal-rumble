@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GIF Reveal Rumble - Game Board</title>
+
+    <link rel="icon" type="image/x-icon" href="./../assets/images/favicon.ico">
+    <link rel="stylesheet" href="./../styles/gameboard.css">
+</head>
+
+<body class="gameboard">
+    <header class="header">
+        <nav class="header__nav">
+            <ul class="header__nav-list">
+                <li class="header__logo">
+                    <a class="header__nav-link" href="/">
+                        <img class="header__logo-img" src="./../assets/logos/app_logo.png" alt="git reveal rumble logo">
+                        REVEAL RUMBLE
+                    </a>
+                </li>
+                <li class="header__nav-list-item"><a class="header__nav-link" href="/">Exit Game</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="game">
+            <h2 class="game__level">Easy</h2>
+            <div class="game__header">
+                <h3 class="game__timer">Time: <time class="game__timer-countdown">3:00</time></h3>
+                <h3 class="game__score">Score: <span class="game__score-counter">0</span></h3>
+            </div>
+
+            <div class="game__content"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="helpIcon__container">
+            <a href="./../pages/rules.html"><img class="helpIcon"
+                    src="./../assets/icons/kisspng-computer-icons-icon-design-help-icon-5b210a95a00f11.9672543715288920536556.png"
+                    alt="help-icon"></a>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./../scripts/game.js" type="module"></script>
+    <script src="./../scripts/giphy-api.js" type="module"></script>
+</body>
+
+</html>

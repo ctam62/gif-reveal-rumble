@@ -1,0 +1,60 @@
+@use './mixins' as *;
+@use './variables' as *;
+@use './_fonts';
+
+html {
+    font-size: 100%;
+}
+
+body {
+    font-family: $font-family;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: $primary-bg;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h2 {
+    font-size: 3.125rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+button {
+    background-color: black;
+    color: $secondary-light;
+    border-radius: .3125rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 1.875rem;
+    font-family: $font-family;
+    margin: 0 0.625rem;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus {
+    box-shadow: 0 0.5rem 0.5rem -0.4rem;
+    transform: translateY(-0.25rem);
+    color: $focus;
+}
+
+.helpIcon {
+    width: 6.25rem;
+    bottom: 1.875rem;
+}
+
+footer {
+    padding-bottom: .9375rem;
+}

@@ -1,0 +1,37 @@
+@use './partials/reset' as *;
+@use './partials/global' as *;
+@use './partials/mixins' as *;
+@use './partials/variables' as *;
+
+
+.rulesContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: $primary-bg;
+}
+.rulesBannerText {
+    font-size: 100px;
+    padding-top: 1.5625rem;
+    padding-bottom: 1.5625rem;
+    color: #DBFCFF;
+}
+.rulesDetails__container {
+    padding-top: 3.125rem;
+}
+
+.rulesDetails__list--item {
+    font-size: 50px;
+    margin-bottom: .625rem;
+    padding: 1.25rem;
+    text-align: center;
+    color: #320e3b;
+}
+button {
+    margin-top: 6.25rem;
+}
+.rulesDetails__list {
+    border: 2px inset #E56399;
+}

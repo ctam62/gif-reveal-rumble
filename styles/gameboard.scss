@@ -1,0 +1,196 @@
+@use './partials/reset' as *;
+@use './partials/global' as *;
+@use './partials/mixins' as *;
+@use './partials/variables' as *;
+
+
+.gameboard {
+    background-color: $primary-light;
+}
+
+.header {
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+
+    &__logo {
+        font-size: 2.5rem;
+
+        &-img {
+            margin-top: -0.125rem;
+            margin-right: 1rem;
+            width: 3.625rem;
+        }
+    }
+
+    &__nav {
+        width: 90%;
+        margin: 0 auto;
+
+        &-list {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &-item {
+                font-size: 2rem;
+            }
+        }
+
+        &-link {
+            color: $primary-dark;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                color: $focus;
+            }
+        }
+    }
+
+}
+
+.game {
+    width: 100%;
+    padding: 0 2rem;
+    text-align: center;
+
+    &__header {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    &__content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    &__level {
+        margin-top: -1rem;
+        margin-bottom: 2rem;
+    }
+
+    &__timer {
+        margin: 0 2rem 2rem 0;
+
+        &-countdown {
+            color: $focus;
+        }
+
+        &--danger {
+            color: $danger;
+        }
+
+    }
+
+    &__score {
+        margin-left: 2rem;
+
+        &-counter {
+            color: $focus;
+        }
+    }
+
+    &__button {
+        margin: 2rem 0 5rem 0;
+    }
+
+    &__card {
+        margin: 1.25rem;
+        width: 9.375rem;
+        height: 9.375rem;
+        perspective: 62.5rem;
+        background-color: transparent;
+
+        @include tablet {
+            width: 12.5rem;
+            height: 13.75rem;
+        }
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &--selected &-content,
+        &--matched &-content {
+            transform: rotateY(180deg);
+        }
+
+        &-row {
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            border-radius: 0.3125rem;
+            border: 0.0625rem solid $dropshadow;
+            box-shadow: 0rem 0.25rem 0.25rem 0.0625rem $dropshadow,
+                0rem 0.25rem 0.25rem 0.0625rem $dropshadow;
+        }
+
+        &-front,
+        &-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 0.3125rem;
+        }
+
+        &-front {
+            background-color: $secondary-light;
+            transform: rotateY(180deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        &-iframe {
+            height: 115%;
+            width: 115%;
+            pointer-events: none;
+        }
+
+        &-back {
+            background: radial-gradient($secondary-light 15%, transparent 16%), linear-gradient(45deg, transparent 49%, $secondary-light 49% 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, $secondary-light 49% 51%, transparent 51%);
+            background-color: $primary-bg;
+            background-size: 3em 3em;
+            opacity: 1
+        }
+    }
+}
+
+.gameover {
+    margin-top: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__header {
+        font-size: 6.25rem;
+        color: $focus;
+    }
+
+    &__text {
+        margin: 2rem;
+        font-size: 1.875rem;
+        color: $primary-dark;
+    }
+
+    &__button {
+        margin-bottom: 3rem;
+    }
+}
