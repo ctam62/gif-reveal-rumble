@@ -57,6 +57,7 @@ body {
     font-size: 3.125rem;
     padding-top: 1.875rem;
     padding-bottom: 0.938rem;
+    color: $primary-dark;
 }
 
 button {
@@ -65,6 +66,7 @@ button {
     border-radius: .3125rem;
     padding: 0.625rem 1.25rem;
     font-size: 1.125rem;
+    font-family: $font-family;
     margin: 0 0.625rem;
     cursor: pointer;
 }
