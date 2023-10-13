@@ -1,6 +1,6 @@
 import { GiphyApi, apiKey, shuffledArray, searchTerms } from "./giphy-api.js";
 
-let seconds = 180; // 3 minutes
+let seconds = 3; // 3 minutes
 let countDownInterval = setInterval(countDownTimer, 1000, seconds);
 const gifApi = new GiphyApi(apiKey);
 
@@ -244,6 +244,14 @@ function countDownTimer() {
 
         const playAgain = document.querySelector(".game__level-same");
         const gameLevel = document.querySelector(".game__level");
+
+        if (gameLevel.textContent.toLowerCase() === "medium") {
+            mediumLevel.remove();
+        } else if (gameLevel.textContent.toLowerCase() === "hard") {
+            hardLevel.remove();
+        } else {
+            easyLevel.remove();
+        }
 
         playAgain.addEventListener("click", (event) => {
             event.preventDefault();
