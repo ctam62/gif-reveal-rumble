@@ -1,5 +1,3 @@
-
-
 function displayCards(gifData) {
     const gameContent = document.querySelector(".game__content");
     const cardRow1 = createElementsWithClasses("div", ["game__card-row"]);
@@ -70,7 +68,7 @@ function displayCards(gifData) {
         }
 
         if (matchCounter === numGifs) {
-            // update score
+            // Update score with each match
             const score = document.querySelector(".game__score-counter");
             score.textContent = `${Number(score.textContent) + 5}`
         }
