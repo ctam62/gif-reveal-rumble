@@ -82,30 +82,24 @@ function displayCards(gifData) {
                 const hardLevel = document.querySelector(".game__level-hard");
                 const playAgain = document.querySelector(".game__level-same");
 
-                // const easyButton = document.querySelector(".game__level-easy");
-                // const mediumButton = document.querySelector(".game__level-medium");
-                // const hardButton = document.querySelector(".game__level-hard");
-
-                // easyButton.addEventListener("click", (event) => {
-                //     level.textContent = "Easy";
-                //     window.location.href = "./../pages/gameboard.html";
-                // });
-
                 mediumLevel.addEventListener("click", (event) => {
+                    event.preventDefault();
                     level.textContent = "Medium";
                     window.location.href = "./../pages/gameboard.html";
                 });
 
                 hardLevel.addEventListener("click", (event) => {
+                    event.preventDefault();
                     level.textContent = "Hard";
                     window.location.href = "./../pages/gameboard.html";
                 });
 
+                const level = document.querySelector(".game__level");
+
                 playAgain.addEventListener("click", (event) => {
                     event.preventDefault();
 
-                    displayCards(gifData);
-                    //window.location.href = "./../pages/gameboard.html";
+                    window.location.href = `./../pages/gameboard-${level.textContent.toLowerCase()}.html`;
                 });
 
                 mediumLevel.addEventListener("click", (event) => {
