@@ -8,6 +8,12 @@ html {
 
 body {
     font-family: $font-family;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: $primary-bg;
 }
 
 a {
@@ -31,7 +37,7 @@ button {
     color: $secondary-light;
     border-radius: .3125rem;
     padding: 0.625rem 1.25rem;
-    font-size: 1.125rem;
+    font-size: 1.875rem;
     font-family: $font-family;
     margin: 0 0.625rem;
     cursor: pointer;
