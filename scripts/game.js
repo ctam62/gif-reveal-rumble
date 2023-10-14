@@ -1,6 +1,6 @@
 import { GiphyApi, apiKey, searchTerms } from "./giphy-api.js";
 
-let seconds = 30; // 3 minutes
+let seconds = 180; // 3 minutes
 let countDownInterval = setInterval(countDownTimer, 1000, seconds);
 const gifApi = new GiphyApi(apiKey);
 
@@ -99,7 +99,7 @@ function displayCards(gifData) {
                     newCardsButton.remove();
                     matchCounter = 0;
                 });
-            }, 1500);
+            }, 1000);
 
         }
     });
@@ -270,7 +270,7 @@ function countDownTimer() {
             }
 
             gameOverContent.remove();
-            seconds = 30;
+            seconds = 180;
         })
 
         countDownInterval = setInterval(countDownTimer, 1000, seconds);
