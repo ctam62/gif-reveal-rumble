@@ -44,6 +44,7 @@ function displayCards(gifData) {
     cardsContainer.addEventListener("click", (event) => {
         event.preventDefault();
         clickCounter += 1;
+
         // Identify closest card when clicked event occurred
         const closestCard = event.target.closest(".game__card");
 
@@ -88,11 +89,8 @@ function displayCards(gifData) {
 
                 const playAgain = document.querySelector(".game__level-same");
 
-                playAgain.addEventListener("click", (event) => {
-                    event.preventDefault(shuffleArray(searchTerms));
-
+                playAgain.addEventListener("click", () => {
                     getCardsFromApi(shuffleArray(searchTerms));
-
                     newCardsButton.remove();
                     matchCounter = 0;
                 });
@@ -230,15 +228,15 @@ function countDownTimer() {
         const mediumLevel = document.querySelector(".game__level-medium");
         const hardLevel = document.querySelector(".game__level-hard");
 
-        easyLevel.addEventListener("click", (event) => {
+        easyLevel.addEventListener("click", () => {
             window.location.href = "./../pages/gameboard-easy.html";
         });
 
-        mediumLevel.addEventListener("click", (event) => {
+        mediumLevel.addEventListener("click", () => {
             window.location.href = "./../pages/gameboard-medium.html";
         });
 
-        hardLevel.addEventListener("click", (event) => {
+        hardLevel.addEventListener("click", () => {
             window.location.href = "./../pages/gameboard-hard.html";
         });
 
@@ -252,11 +250,8 @@ function countDownTimer() {
             easyLevel.remove();
         }
 
-        playAgain.addEventListener("click", (event) => {
-            event.preventDefault();
-
+        playAgain.addEventListener("click", () => {
             getCardsFromApi(shuffleArray(searchTerms));
-
             gameOverContent.remove();
             seconds = 180;
         })
