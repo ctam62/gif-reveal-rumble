@@ -1,7 +1,7 @@
 import { GiphyApi, apiKey, searchTerms } from "./giphy-api.js";
 
 let seconds = 180; // 3 minutes
-let countDownInterval = setInterval(countDownTimer, 1000, seconds);
+let countDownInterval = setInterval(countDownTimer, 1000);
 const gifApi = new GiphyApi(apiKey);
 
 function displayCards(gifData) {
@@ -219,7 +219,7 @@ function countDownTimer() {
 
     if (seconds === 0) {
         clearInterval(countDownInterval);
-        // clear gameboard page
+
         let gameSection = document.querySelector(".game__content");
 
         // Clear existing game content
@@ -273,7 +273,7 @@ function countDownTimer() {
             seconds = 180;
         })
 
-        countDownInterval = setInterval(countDownTimer, 1000, seconds);
+        countDownInterval = setInterval(countDownTimer, 1000);
 
     } else {
         seconds--;
