@@ -43,59 +43,60 @@ function displayCards(gifData) {
     // Click event to flip cards
     cardsContainer.addEventListener("click", (event) => {
         event.preventDefault();
-        clickCounter += 1;
 
         // Identify closest card when clicked event occurred
         const closestCard = event.target.closest(".game__card");
 
-        // Add selected class to clicked card
-        closestCard.classList.add("game__card--selected");
-        closestCard.id = clickCounter;
+        if (closestCard !== null) {
+            clickCounter += 1;
+            closestCard.classList.add("game__card--selected");
+            closestCard.id = clickCounter;
 
-        // Remove selected class from previously clicked card
-        // do this only if second clicked card does not match first card
-        if (clickCounter === 2) {
-            clickCounter = 0;
-            const previousCard = document.getElementById("1");
-            const previousIframe = previousCard.childNodes[0].childNodes[0].childNodes[0];
-            const currentCard = document.getElementById("2");
-            const activeIframe = currentCard.childNodes[0].childNodes[0].childNodes[0];
+            // Remove selected class from previously clicked card
+            // do this only if second clicked card does not match first card
+            if (clickCounter === 2) {
+                clickCounter = 0;
+                const previousCard = document.getElementById("1");
+                const previousIframe = previousCard.childNodes[0].childNodes[0].childNodes[0];
+                const currentCard = document.getElementById("2");
+                const activeIframe = currentCard.childNodes[0].childNodes[0].childNodes[0];
 
-            if (activeIframe.src !== previousIframe.src) {
-                setTimeout(() => {
-                    removeSelectedClass();
-                    previousCard.id = 0;
-                    currentCard.id = 0;
-                }, 400);
-            } else {
-                matchCounter += 1;
-                previousCard.classList.add("game__card--matched");
-                currentCard.classList.add("game__card--matched");
-                // Update score with each match
-                const score = document.querySelector(".game__score-counter");
-                score.textContent = `${Number(score.textContent) + 5}`
-                previousCard.id = 0;
-                currentCard.id = 0;
+                if (activeIframe.src !== previousIframe.src) {
+                    setTimeout(() => {
+                        removeSelectedClass();
+                        previousCard.id = "";
+                        currentCard.id = "";
+                    }, 400);
+                } else {
+                    matchCounter += 1;
+                    previousCard.classList.add("game__card--matched");
+                    currentCard.classList.add("game__card--matched");
+
+                    // Update score with each match
+                    const score = document.querySelector(".game__score-counter");
+                    score.textContent = `${Number(score.textContent) + 5}`
+                    previousCard.id = "";
+                    currentCard.id = "";
+                }
             }
-        }
 
-        if (matchCounter === numGifs) {
-            // show play again button
-            setTimeout(() => {
-                gameContent.textContent = "";
-                const newCardsButton = createElementsWithClasses("button", ["game__button", "game__level-same"]);
-                newCardsButton.textContent = "Next Round";
-                gameContent.appendChild(newCardsButton);
+            if (matchCounter === numGifs) {
+                // show play again button
+                setTimeout(() => {
+                    gameContent.textContent = "";
+                    const newCardsButton = createElementsWithClasses("button", ["game__button", "game__level-same"]);
+                    newCardsButton.textContent = "Next Round";
+                    gameContent.appendChild(newCardsButton);
 
-                const playAgain = document.querySelector(".game__level-same");
+                    const playAgain = document.querySelector(".game__level-same");
 
-                playAgain.addEventListener("click", () => {
-                    getCardsFromApi(shuffleArray(searchTerms));
-                    newCardsButton.remove();
-                    matchCounter = 0;
-                });
-            }, 1000);
-
+                    playAgain.addEventListener("click", () => {
+                        getCardsFromApi(shuffleArray(searchTerms));
+                        newCardsButton.remove();
+                        matchCounter = 0;
+                    });
+                }, 1000);
+            }
         }
     });
 }
