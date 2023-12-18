@@ -1,0 +1,228 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "MouseMemoirs";
+  src: url("./../assets/fonts/MouseMemoirs-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: "MouseMemoirs", Arial, Helvetica, sans-serif;
+  font-size: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  background-color: #7F96FF;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+h2 {
+  font-size: 3.125rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+button {
+  background-color: black;
+  color: #FFF;
+  border-radius: 0.3125rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 1.875rem;
+  font-family: "MouseMemoirs", Arial, Helvetica, sans-serif;
+  margin: 0 0.625rem;
+  cursor: pointer;
+}
+
+button:hover,
+button:focus {
+  box-shadow: 0 0.5rem 0.5rem -0.4rem;
+  transform: translateY(-0.25rem);
+  color: #E56399;
+}
+
+.helpIcon {
+  width: 6.25rem;
+  bottom: 1.875rem;
+}
+
+footer {
+  padding-bottom: 0.9375rem;
+}
+
+.gameboard {
+  background-color: #DBFCFF;
+}
+
+.header {
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+}
+.header__logo {
+  font-size: 2.5rem;
+}
+.header__logo-img {
+  margin-top: -0.125rem;
+  margin-right: 1rem;
+  width: 3.625rem;
+}
+.header__nav {
+  width: 90%;
+  margin: 0 auto;
+}
+.header__nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__nav-list-item {
+  font-size: 2rem;
+}
+.header__nav-link {
+  color: #320E3B;
+  display: flex;
+  align-items: center;
+}
+.header__nav-link:hover {
+  color: #E56399;
+}
+
+.game {
+  width: 100%;
+  padding: 0 2rem;
+  text-align: center;
+}
+.game__header {
+  display: flex;
+  justify-content: space-around;
+}
+.game__content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.game__level {
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+}
+.game__timer {
+  margin: 0 2rem 2rem 0;
+}
+.game__timer-countdown {
+  color: #E56399;
+}
+.game__timer--danger {
+  color: #FF3E3E;
+}
+.game__score {
+  margin-left: 2rem;
+}
+.game__score-counter {
+  color: #E56399;
+}
+.game__button {
+  margin: 2rem 0 5rem 0;
+}
+.game__card {
+  margin: 1.25rem;
+  width: 9.375rem;
+  height: 9.375rem;
+  perspective: 62.5rem;
+  background-color: transparent;
+}
+@media (min-width: 768px) {
+  .game__card {
+    width: 12.5rem;
+    height: 13.75rem;
+  }
+}
+.game__card:hover {
+  cursor: pointer;
+}
+.game__card--selected .game__card-content, .game__card--matched .game__card-content {
+  transform: rotateY(180deg);
+}
+.game__card-row {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.game__card-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 0.3125rem;
+  border: 0.0625rem solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0rem 0.25rem 0.25rem 0.0625rem rgba(0, 0, 0, 0.2), 0rem 0.25rem 0.25rem 0.0625rem rgba(0, 0, 0, 0.2);
+}
+.game__card-front, .game__card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.3125rem;
+}
+.game__card-front {
+  background-color: #FFF;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.game__card-iframe {
+  height: 115%;
+  width: 115%;
+  pointer-events: none;
+}
+.game__card-back {
+  background: radial-gradient(#FFF 15%, transparent 16%), linear-gradient(45deg, transparent 49%, #FFF 49% 51%, transparent 51%), linear-gradient(-45deg, transparent 49%, #FFF 49% 51%, transparent 51%);
+  background-color: #7F96FF;
+  background-size: 3em 3em;
+  opacity: 1;
+}
+
+.gameover {
+  margin-top: 8%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.gameover__header {
+  font-size: 6.25rem;
+  color: #E56399;
+}
+.gameover__text {
+  margin: 2rem;
+  font-size: 1.875rem;
+  color: #320E3B;
+}
+.gameover__button {
+  margin-bottom: 3rem;
+}/*# sourceMappingURL=gameboard.css.map */
