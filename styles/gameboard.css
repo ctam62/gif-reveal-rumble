@@ -22,7 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  padding: 0.125rem;
   background-color: #7F96FF;
 }
 
@@ -61,22 +61,43 @@ button:focus {
 }
 
 .helpIcon {
-  width: 6.25rem;
-  bottom: 1.875rem;
+  width: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.875rem;
+  padding: 0.5rem;
+}
+.helpIcon__container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .helpIcon__container {
+    justify-content: space-between;
+  }
+}
+.helpIcon__container--home {
+  justify-content: center;
 }
 
 footer {
-  padding-bottom: 0.9375rem;
+  width: 90%;
+  padding: 0.5rem 2rem;
 }
 
 .gameboard {
+  display: flex;
+  flex-direction: column;
   background-color: #DBFCFF;
 }
 
 .header {
+  margin-top: 0.5rem;
   width: 100%;
-  padding: 2rem;
+  padding: 1.5rem;
   display: flex;
+  justify-content: space-between;
 }
 .header__logo {
   font-size: 2.5rem;
@@ -111,6 +132,14 @@ footer {
   width: 100%;
   padding: 0 2rem;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.game__container {
+  display: flex;
+  flex-direction: column;
 }
 .game__header {
   display: flex;
@@ -167,6 +196,7 @@ footer {
 .game__card-row {
   display: flex;
   width: 100%;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }

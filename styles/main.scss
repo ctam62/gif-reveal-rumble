@@ -14,6 +14,7 @@
 }
 
 .banner {
+    margin-top: 4rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,11 +49,9 @@
 
 .container {
     text-align: center;
-    margin-top: 1.25rem;
 }
 
 .button-container {
-    margin-top: 1.25rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,4 +71,8 @@
         font-size: 1.875rem;
         width: 15rem;
     }
+}
+
+.giphyIcon {
+    padding: 1rem;
 }

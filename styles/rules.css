@@ -22,7 +22,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  padding: 0.125rem;
   background-color: #7F96FF;
 }
 
@@ -61,12 +61,29 @@ button:focus {
 }
 
 .helpIcon {
-  width: 6.25rem;
-  bottom: 1.875rem;
+  width: 5rem;
+  margin-top: 1rem;
+  margin-bottom: 1.875rem;
+  padding: 0.5rem;
+}
+.helpIcon__container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .helpIcon__container {
+    justify-content: space-between;
+  }
+}
+.helpIcon__container--home {
+  justify-content: center;
 }
 
 footer {
-  padding-bottom: 0.9375rem;
+  width: 90%;
+  padding: 0.5rem 2rem;
 }
 
 .rulesContent {
@@ -79,6 +96,7 @@ footer {
 }
 
 .rulesBannerText {
+  margin-top: 2rem;
   font-size: 100px;
   padding-top: 1.5625rem;
   padding-bottom: 1.5625rem;
@@ -88,7 +106,6 @@ footer {
 .rulesDetails__container {
   padding-top: 3.125rem;
 }
-
 .rulesDetails__list--item {
   font-size: 50px;
   margin-bottom: 0.625rem;
@@ -96,11 +113,10 @@ footer {
   text-align: center;
   color: #320e3b;
 }
-
-button {
-  margin-top: 6.25rem;
-}
-
 .rulesDetails__list {
+  margin: 0 1rem;
   border: 2px inset #E56399;
+}
+.rulesDetails__button {
+  margin-top: 3rem;
 }/*# sourceMappingURL=rules.css.map */
