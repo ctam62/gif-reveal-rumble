@@ -1,3 +1,5 @@
+import env from "./config.js";
+
 const apiKey = env.API_KEY;
 
 class GiphyApi {
