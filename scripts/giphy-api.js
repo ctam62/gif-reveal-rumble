@@ -1,9 +1,9 @@
-const apiKey = env.API_KEY;
+const apiKey = process.env.API_KEY;
 
 class GiphyApi {
     constructor(apiKey) {
         this.apiKey = apiKey;
-        this.baseURL = `${env.API_URL}/v1/gifs/search`;
+        this.baseURL = `${process.env.API_URL}/v1/gifs/search`;
     }
 
     getGifs(search, limit) {
