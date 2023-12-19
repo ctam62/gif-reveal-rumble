@@ -1,2 +1,4 @@
 *.css.map
 *.DS_Store
+.env
+config.js
