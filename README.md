@@ -1,6 +1,7 @@
 <img src="https://github.com/ctam62/gif-reveal-rumble/blob/main/assets/logos/app_logo.png" alt="GIT Reveal Rumble Logo" width="200">
 
 # GIF Reveal Rumble
+![gifrevealrumble](https://github.com/ctam62/gif-reveal-rumble/assets/34747168/d6061c65-8771-417e-b9a6-fed68e2b5ac7)
 
 A single player matching game using GIF images from the [GIPHY API](https://developers.giphy.com/). This was a hackathon project completed in a two person team.
 
